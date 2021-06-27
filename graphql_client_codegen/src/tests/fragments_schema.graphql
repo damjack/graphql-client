@@ -1,0 +1,64 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+"""
+This directive allows results to be deferred during execution
+"""
+directive @defer on FIELD
+
+"""
+The top-level Query type.
+"""
+type Query {
+  """
+  Keyword type
+  """
+  search: Self
+}
+
+"""
+Fragment type
+"""
+type Self {
+  """
+  A fragment variable name with
+  """
+  status: Status
+}
+
+"""
+Fragment type
+"""
+union Status = Active | Completed | Progress
+
+"""
+Fragment type
+"""
+type Active {
+  """
+  A field
+  """
+  forActive: String!
+}
+
+"""
+Fragment type
+"""
+type Completed {
+  """
+  A field
+  """
+  forCompleted: String!
+}
+
+"""
+Fragment type
+"""
+type Progress {
+  """
+  A field
+  """
+  forProgress: String!
+}

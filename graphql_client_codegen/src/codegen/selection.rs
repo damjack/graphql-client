@@ -541,7 +541,9 @@ impl<'a> ExpandedSelection<'a> {
                     #response_derives
                     #[serde(tag = "__typename")]
                     pub enum #struct_name {
-                        #(#on_variants),*
+                        #(#on_variants,)*
+                        #[serde(other)]
+                        Unknown,
                     }
                 };
                 items.push(item);

@@ -1,0 +1,13 @@
+query FragmentsQuery {
+  search {
+    status {
+      __typename
+      ... on Active {
+        forActive
+      }
+      ... on Completed {
+        forCompleted
+      }
+    }
+  }
+}
